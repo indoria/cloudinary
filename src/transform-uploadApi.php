@@ -2,8 +2,11 @@
 
 require_once('common.php');
 
+
 use Cloudinary\Configuration\Configuration;
 use Cloudinary\Api\Upload\UploadApi;
+
+
 Configuration::instance($cloudinaryURL);
 
 $uploadApi = new UploadApi();
