@@ -24,6 +24,7 @@ use Cloudinary\Api\Admin\AdminApi;
 
 use Cloudinary\Tag\ImageTag;
 
+use Cloudinary\Transformation\Transformation;
 use Cloudinary\Transformation\Background;
 use Cloudinary\Transformation\Resize;
 use Cloudinary\Transformation\Gravity;
@@ -31,6 +32,4 @@ use Cloudinary\Transformation\Compass;
 use Cloudinary\Transformation\Position;
 use Cloudinary\Transformation\Source;
 use Cloudinary\Transformation\Overlay;
-use Cloudinary\Transformation\Transformation;
 use Cloudinary\Transformation\Reshape;
-

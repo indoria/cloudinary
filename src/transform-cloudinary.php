@@ -3,6 +3,7 @@ require_once('common.php');
 
 use Cloudinary\Configuration\Configuration;
 use Cloudinary\Cloudinary;
+use Cloudinary\Transformation\Transformation;
 
 Configuration::instance($cloudinaryURL);
 
@@ -39,3 +40,20 @@ $imageUrl = $cloudinary->image($productImageURL)
     ->toUrl();
 
 echo $imageUrl;
+
+
+
+
+$url = $cloudinary->image('base_image.jpg')
+    ->resize(\Cloudinary\Transformation\Resize::scale()->width(500))
+    ->overlay(\Cloudinary\Transformation\Overlay::source('logo1_public_id')
+        ->resize(\Cloudinary\Transformation\Resize::scale()->width(100))
+        ->gravity(\Cloudinary\Transformation\Gravity::southEast())
+        ->position(\Cloudinary\Transformation\Position::absolute()->x(10)->y(20)))
+    ->overlay(\Cloudinary\Transformation\Overlay::source('logo2_public_id')
+        ->resize(\Cloudinary\Transformation\Resize::scale()->width(100))
+        ->gravity(\Cloudinary\Transformation\Gravity::southWest())
+        ->position(\Cloudinary\Transformation\Position::absolute()->x(10)->y(20)))
+    ->toUrl();
+
+echo $url;
