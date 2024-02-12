@@ -57,3 +57,23 @@ $url = $cloudinary->image('base_image.jpg')
     ->toUrl();
 
 echo $url;
+
+
+
+use Cloudinary\Transformation as T;
+
+$cloudinary = new Cloudinary();
+
+$publicId = 'your_stored_image_public_id';
+
+$transformedImageUrl = $cloudinary->image($publicId)
+    ->transformation(
+        (new T())
+            ->resize(T\Resize::fill()->width(300)->height(300)->gravity('face'))
+            ->border(T\Border::solid()->width(5)->color('black'))
+            ->effect(T\Effect::sepia(80))
+            ->rotate(T\Rotate::byAngle(20))
+    )
+    ->toUrl();
+
+echo $transformedImageUrl;
