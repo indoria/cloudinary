@@ -28,11 +28,14 @@ use Cloudinary\Api\Admin\AdminApi;
 use Cloudinary\Tag\ImageTag;
 use Cloudinary\Transformation\Background;
 use Cloudinary\Transformation\Resize;
+use Cloudinary\Cloudinary;
 
 echo '<h1>Cloudinary PHP Quick Start</h1>';
 
 
 Configuration::instance("cloudinary://426417412229354:eCZFi4a0Vw3RfEdUeFHnMoQCzEg@da18jfrb5?secure=true");
+
+$cloudinary = new Cloudinary();
 
 // Upload API
 echo '<h2>Upload API Response</h2>';
